@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  plantech-app:
+    container_name: plant-model-app
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./app:/app/app
+      - ./model:/app/model
+      - ./app-images:/app/app-images
+    restart: unless-stopped
