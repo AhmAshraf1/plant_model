@@ -18,4 +18,7 @@ COPY app-images/ ./app-images/
 EXPOSE 8501
 
 # Command to run the application
-CMD ["streamlit", "run", "app/app.py", "--server.address=localhost"]
+# Using --server.address=0.0.0.0 is necessary for Docker containers
+# 0.0.0.0 binds to all network interfaces, making the app accessible from outside the container
+# localhost or 127.0.0.1 would only allow connections from within the container itself
+CMD ["streamlit", "run", "app/app.py", "--server.address=0.0.0.0"]
