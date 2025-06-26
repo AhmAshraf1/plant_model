@@ -69,6 +69,7 @@ you can access the web app from below.
 **SOON**
 
 ## Usage
+### Option 1: Standard Installation
 #### 1- Clone the repository:
 ```bash
 git clone https://github.com/AhmAshraf1/plant_model.git
@@ -80,10 +81,30 @@ cd plant_model
 pip install -r requirements.txt
 ```
 
-### 3- Run Streamlit App:
+#### 3- Run Streamlit App:
 ```bash
-streamlit run /app/app.py
+streamlit run app/app.py
 ```
+
+### Option 2: Using Docker
+#### 1- Clone the repository:
+```bash
+git clone https://github.com/AhmAshraf1/plant_model.git
+cd plant_model
+```
+
+#### 2- Build and run with Docker:
+```bash
+docker build -t plant-model .
+docker run -p 8501:8501 plant-model
+```
+
+#### 3- Or use Docker Compose:
+```bash
+docker-compose up
+```
+
+The application will be available at http://localhost:8501
 
 ## Results
 The model achieves an accuracy of 90.5% on the validation set and 91.5% on the test set. Training and Validation loss and accuracy plots are provided in the Notebook to visualize the model's performance after transfer learning and fine-tuning. Confusion Matrix and Classification Report are also provided in the notebook to show the classification performance on the test set.
